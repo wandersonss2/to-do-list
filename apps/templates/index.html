@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Totodile</title>
+</head>
+<body>
+     testando
+     
+    <ul>
+    {% for tarefa in tarefas %}
+        <li>{{ tarefa.id }} - {{tarefa.tarefa}} <a href="{% url 'status' tarefa.id %}">Status</a></li>
+    {% endfor%}
+    </ul>
+
+    <form action="{% url 'save' %}" method="POST">
+        {% csrf_token %}
+        <input type="text" name="tarefas">
+        <button type="submit">Salvar tarefa</button>
+    </form>
+
+
+
+</body>
+</html>
